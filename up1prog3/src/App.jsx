@@ -2,6 +2,8 @@ import Beers from "./components/Beers";
 import Family from "./components/Family";
 import Persons from "./components/Persons";
 import Products from "./components/Products";
+import SendingForm from "./components/SendingForm";
+import TableForm from "./components/TableForm";
 
 export default function App() {
   const products = ["table", "couch", "chair1", "chair2"];
@@ -35,6 +37,8 @@ export default function App() {
       <Products products={products} />
       <Persons names={names} />
       <Family orderedPersons={orderedPersons} />
+      <TableForm />
+      <SendingForm/>
     </div>
   );
 }
