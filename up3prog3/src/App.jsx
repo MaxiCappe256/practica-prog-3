@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router';
-import Cartelera from './pages/Cartelera';
-import { initialMovies } from './data/movies';
-import { useState } from 'react';
-import MovieDetail from './pages/MovieDetail';
-import NewCartelera from './pages/NewCartelera';
+import { BrowserRouter, Route, Routes } from "react-router";
+import Cartelera from "./pages/Cartelera";
+import { initialMovies } from "./data/movies";
+import { useState } from "react";
+import MovieDetail from "./pages/MovieDetail";
+import NewMovie from "./pages/NewMovie";
 
 function App() {
   const [movies, setMovies] = useState(initialMovies);
@@ -23,8 +23,8 @@ function App() {
           element={<MovieDetail movies={movies} />}
         />
         <Route
-          path="/cartelera/new"
-          element={<NewCartelera movies={movies} setMovies={setMovies} />}
+          path="/new"
+          element={<NewMovie movies={movies} setMovies={setMovies} />}
         />
       </Routes>
     </BrowserRouter>
