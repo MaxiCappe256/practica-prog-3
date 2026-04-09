@@ -8,12 +8,19 @@ import {
 } from './ui/card';
 
 export default function MoovieCard({ movie, onDeleteClick }) {
+  const posterFallback =
+    'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png';
+
   return (
     <Card className="w-72 shadow-lg hover:shadow-xl transition">
       <img
         src={movie.poster}
         alt={`Imagen pelicula: ${movie.title}`}
         className="w-full h-80 object-cover"
+        onError={(e) => {
+          e.target.error = null;
+          e.target.src = posterFallback;
+        }}
       />
 
       <CardHeader className="flex gap-2 justify-between items-center">

@@ -68,7 +68,7 @@ export default function Navbar({ search, setSearch }) {
           placeholder="Busca tu pelicula..."
         />
 
-        {/* Icon Mobile */}
+        {/* Icon celu */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
