@@ -11,11 +11,15 @@ function App() {
   const deleteMovie = (id) =>
     setMovies(movies.filter((movie) => movie.id !== id));
 
+  const addMovie = (newMovie) => {
+    setMovies([...movies, newMovie]);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
-          path="/cartelera"
+          path="/"
           element={<Cartelera movies={movies} onDelete={deleteMovie} />}
         />
         <Route
@@ -24,7 +28,7 @@ function App() {
         />
         <Route
           path="/new"
-          element={<NewMovie movies={movies} setMovies={setMovies} />}
+          element={<NewMovie addMovie={addMovie} />}
         />
       </Routes>
     </BrowserRouter>

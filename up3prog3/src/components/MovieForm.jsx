@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -9,7 +10,50 @@ import {
   SelectValue,
 } from "./ui/select";
 
-export default function MovieForm() {
+export default function MovieForm({ addMovie }) {
+  const cines = [
+    "El Cairo",
+    "Showcase Rosario",
+    "Cines del centro",
+    " Cinemark Hoyts",
+    "Las Tipas",
+    "Nuevo Monumental",
+  ];
+
+  const [formData, setFormData] = useState({
+    title: "",
+    director: "",
+    duration: "",
+    rating: "",
+    sinopsis: "",
+    cinemas: [],
+    date: "",
+    time: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // validaciones
+    setFormData({
+      title: formData.title,
+      director: formData.director,
+      duration: formData.duration,
+      rating: formData.rating,
+      sinopsis: formData.sinopsis,
+      cinemas: formData.cinemas,
+      date: formData.date,
+      time: formData.time,
+    });
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <form className="p-6 bg-gray-700 text-white rounded-md shadow-md flex flex-col gap-3">
       <div className="flex gap-5">
@@ -18,6 +62,8 @@ export default function MovieForm() {
           type="text"
           className="flex-1"
           placeholder="Ej: Argentina, 1985..."
+          onChange={handleChange}
+          name={formData.director}
         />
       </div>
 
@@ -27,6 +73,8 @@ export default function MovieForm() {
           type="text"
           className="flex-1"
           placeholder="Ej: Santiago Mitre..."
+          onChange={handleChange}
+          name={formData.director}
         />
       </div>
 
@@ -52,12 +100,11 @@ export default function MovieForm() {
           </SelectTrigger>
 
           <SelectContent className="p-2">
-            <SelectItem value="cairo">El Cairo</SelectItem>
-            <SelectItem value="showcase">Showcase Rosario</SelectItem>
-            <SelectItem value="centro">Cines del centro</SelectItem>
-            <SelectItem value="cinemark">Cinemark Hoyts</SelectItem>
-            <SelectItem value="tipas">Las Tipas</SelectItem>
-            <SelectItem value="monumental">Nuevo Monumental</SelectItem>
+            {cines.map((cine) => (
+              <SelectItem key={cine} value={cine}>
+                {cine}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>

@@ -20,7 +20,7 @@ export default function Navbar({ search, setSearch }) {
       <NavigationMenu className="flex justify-between items-center max-w-7xl mx-auto px-5 xl:p-0 md:p-0">
         {/* Logo */}
         <Link
-          to="/cartelera"
+          to="/"
           className="text-3xl cursor-pointer font-bold hover:scale-105 transition-all"
         >
           Cartelera - Rosario
@@ -29,7 +29,7 @@ export default function Navbar({ search, setSearch }) {
         {/* Links */}
         <NavigationMenuList className="hidden md:flex">
           <NavigationMenuItem className="flex gap-2">
-            <Link to="/cartelera">
+            <Link to="/">
               <NavigationMenuLink className="hover:bg-slate-300 hover:text-black">
                 Inicio
               </NavigationMenuLink>

@@ -1,7 +1,7 @@
-import MoovieCard from '@/components/MoovieCard';
-import { Button } from '@/components/ui/button';
-import Navbar from '@/components/ui/Navbar';
-import { Link, useParams } from 'react-router';
+import MoovieCard from "@/components/MoovieCard";
+import { Button } from "@/components/ui/button";
+import Navbar from "@/components/ui/Navbar";
+import { Link, useParams } from "react-router";
 
 export default function MovieDetail({ movies }) {
   const { movieId } = useParams();
@@ -11,7 +11,7 @@ export default function MovieDetail({ movies }) {
   return (
     <div>
       <Navbar />
-      <Link to='/cartelera'>
+      <Link to="/">
         <Button className="mt-5 ml-5 cursor-pointer">Volver</Button>
       </Link>
       <div className="min-h-[calc(100vh-160px)] flex justify-center items-center">
